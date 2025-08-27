@@ -1,11 +1,13 @@
 import {Command} from 'commander'
 import {readFile} from 'fs/promises'
 import {cliManager} from './cliManager.js'
+import {join} from 'path'
+const __dirname = import.meta.dirname
 
 export async function cli() {
 	const program = new Command()
 
-	const packageContent = await readFile('./package.json')
+	const packageContent = await readFile(join(__dirname, 'package.json'))
 	const packageInfo = JSON.parse(packageContent.toString())
 
 	program
