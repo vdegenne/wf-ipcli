@@ -4,7 +4,7 @@ const __dirname = import.meta.dirname
 
 export function run(scriptName: string, args: string[] = []): Promise<string> {
 	return new Promise((resolve, reject) => {
-		const scriptPath = path.resolve(__dirname, 'scripts', scriptName)
+		const scriptPath = path.join(__dirname, 'scripts', scriptName)
 		const process = spawn(scriptPath, args, {stdio: 'pipe'})
 
 		let output = ''
