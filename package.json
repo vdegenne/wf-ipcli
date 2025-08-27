@@ -1,0 +1,66 @@
+{
+	"name": "wf-ipcli",
+	"version": "0.1.2",
+	"description": "",
+	"type": "module",
+	"bin": "./bin/wf-ipcli",
+	"types": "",
+	"scripts": {
+		"build": "wireit",
+		"test": "wireit"
+	},
+	"files": [
+		"./cli.js",
+		"./bin/",
+		"./scripts/"
+	],
+	"devDependencies": {
+		"@types/node": "^24.3.0",
+		"@vdegenne/rollup": "^0.1.8",
+		"commander": "^14.0.0",
+		"typescript": "^5.9.2",
+		"wireit": "^0.14.12"
+	},
+	"wireit": {
+		"build": {
+			"dependencies": [
+				"build:ts",
+				"build:rollup"
+			]
+		},
+		"build:ts": {
+			"command": "tsc",
+			"clean": "if-file-deleted",
+			"files": [
+				"./tsconfig.json",
+				"./src/"
+			],
+			"output": [
+				"./lib/"
+			]
+		},
+		"build:rollup": {
+			"command": "rollup -c",
+			"clean": "if-file-deleted",
+			"files": [
+				"./rollup.config.js"
+			],
+			"output": [
+				"./cli.js"
+			],
+			"dependencies": [
+				"build:ts"
+			]
+		},
+		"test": {
+			"command": "node ./lib/test.js",
+			"files": [
+				"./scripts/"
+			],
+			"dependencies": [
+				"build"
+			],
+			"output": []
+		}
+	}
+}
