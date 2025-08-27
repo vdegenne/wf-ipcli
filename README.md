@@ -18,4 +18,4 @@ sudo npm i -g wf-ipcli
 
 ## Usage
 
-<img width="828" height="861" alt="image" src="https://github.com/user-attachments/assets/f98d48d2-c762-4805-9d88-231126562b1e" />
+<img width="728"  alt="image" src="https://github.com/user-attachments/assets/f98d48d2-c762-4805-9d88-231126562b1e" />
