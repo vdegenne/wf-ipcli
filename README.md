@@ -13,7 +13,7 @@ pip install wayfire
 - Install this CLI on your system
 
 ```bash
-sudo npm i -g wf-cli
+sudo npm i -g wf-ipcli
 ```
 
 ## Usage
