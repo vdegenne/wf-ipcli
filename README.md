@@ -1,4 +1,6 @@
-## How to use
+# wf-ipcli
+
+## Installation
 
 - Make sure you are at least `wayfire` 0.10.0
 - Activate `ipc` and `ipc-rules` in wayfire plugins
