@@ -40,5 +40,10 @@ export async function cli() {
 			}
 		})
 
+	program
+		.command('active-window')
+		.description('Get information of the active window (focused view)')
+		.action(cliManager.getActiveWindow)
+
 	program.parse(process.argv)
 }

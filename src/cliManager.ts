@@ -18,6 +18,10 @@ class CLIManager {
 	async setTouchState(switchArg: 'enabled' | 'disabled') {
 		await run('set-touch-state.py', [switchArg])
 	}
+
+	async getActiveWindow() {
+		console.log(await run('get-active-window.py'))
+	}
 }
 
 export const cliManager = new CLIManager()
