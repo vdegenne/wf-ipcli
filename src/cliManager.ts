@@ -22,6 +22,10 @@ class CLIManager {
 	async getActiveWindow() {
 		console.log(await run('get-active-window.py'))
 	}
+
+	async getActiveApp() {
+		console.log(await run('get-active-app.py'))
+	}
 }
 
 export const cliManager = new CLIManager()

@@ -45,5 +45,12 @@ export async function cli() {
 		.description('Get information of the active window (focused view)')
 		.action(cliManager.getActiveWindow)
 
+	program
+		.command('active-app')
+		.description(
+			'Get the name of the active app (focused view app-id, e.g. "google-chrome")',
+		)
+		.action(cliManager.getActiveApp)
+
 	program.parse(process.argv)
 }
