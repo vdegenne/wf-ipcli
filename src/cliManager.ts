@@ -26,6 +26,13 @@ class CLIManager {
 	async getActiveName() {
 		console.log(await run('get-active-name.py'))
 	}
+
+	async isActiveName(name: string) {
+		const activeName = await run('get-active-name.py')
+		if (name !== activeName) {
+			process.exit(1)
+		}
+	}
 }
 
 export const cliManager = new CLIManager()

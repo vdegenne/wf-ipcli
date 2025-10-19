@@ -49,9 +49,25 @@ export async function cli() {
 		.command('active-name')
 		.description(
 			`Get the name of the active window (e.g. "google-chrome").
-			  (Similar to wf-ipcli active-window | jq -r '.["app-id"]')`,
+				(Similar to wf-ipcli active-window | jq -r '.["app-id"]')`,
 		)
 		.action(cliManager.getActiveName)
+
+	program
+		.command('is-active-name <name>')
+		.description(
+			`Throws if the provided name doesn't match the active-window app-id`,
+		)
+		.action(cliManager.isActiveName)
+
+	program.exitOverride((err) => {
+		if (err.code === 'commander.help') {
+			process.exit(0) // override to success
+		} else {
+			// throw err // keep other errors
+			// process.exit(1)
+		}
+	})
 
 	program.parse(process.argv)
 }
