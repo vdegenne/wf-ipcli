@@ -11,7 +11,7 @@ export async function cli() {
 	const packageInfo = JSON.parse(packageContent.toString())
 
 	program
-		.name('wf-cli')
+		.name('wf-ipcli')
 		.description('Wrapper CLI for Wayfire IPC')
 		.version(packageInfo.version)
 
@@ -46,11 +46,12 @@ export async function cli() {
 		.action(cliManager.getActiveWindow)
 
 	program
-		.command('active-app')
+		.command('active-name')
 		.description(
-			'Get the name of the active app (focused view app-id, e.g. "google-chrome")',
+			`Get the name of the active window (e.g. "google-chrome").
+			  (Similar to wf-ipcli active-window | jq -r '.["app-id"]')`,
 		)
-		.action(cliManager.getActiveApp)
+		.action(cliManager.getActiveName)
 
 	program.parse(process.argv)
 }

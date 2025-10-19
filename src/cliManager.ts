@@ -23,8 +23,8 @@ class CLIManager {
 		console.log(await run('get-active-window.py'))
 	}
 
-	async getActiveApp() {
-		console.log(await run('get-active-app.py'))
+	async getActiveName() {
+		console.log(await run('get-active-name.py'))
 	}
 }
 
