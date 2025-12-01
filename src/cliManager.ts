@@ -31,6 +31,8 @@ class CLIManager {
 		const activeName = await run('get-active-name.py')
 		if (name !== activeName) {
 			process.exit(1)
+		} else {
+			process.exit(0)
 		}
 	}
 }
